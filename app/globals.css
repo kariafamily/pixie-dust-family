@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Brand Colors */
+  --color-primary-blue: #003D7A;
+  --color-bright-blue: #0072CE;
+  --color-sky-blue: #E8F4FD;
+  --color-white: #FFFFFF;
+  --color-off-white: #F5F8FF;
+  --color-text-dark: #0D1B2A;
+  --color-text-muted: #4A5568;
+  --color-border-light: #D1E3F5;
+
+  /* Font Families */
+  --font-playfair: var(--font-playfair-display);
+  --font-dm-sans: var(--font-dm-sans);
+  --font-serif: var(--font-playfair-display), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #0D1B2A;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prose overrides for MDX content */
+.prose h1, .prose h2, .prose h3 {
+  font-family: var(--font-playfair-display), Georgia, serif;
+  color: #0D1B2A;
+}
+
+.prose a {
+  color: #0072CE;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #003D7A;
+}
