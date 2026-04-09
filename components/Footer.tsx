@@ -29,13 +29,13 @@ const moreLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2C1F1A] text-white">
+    <footer className="bg-[#003D7A] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand column */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-[#C9A55A]">✦</span>
+              <span className="text-[#0072CE]">✦</span>
               <span
                 className="font-light text-lg tracking-wide"
                 style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}

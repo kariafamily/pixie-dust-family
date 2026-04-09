@@ -4,11 +4,11 @@ import Script from "next/script";
 
 export default function EmailCapture() {
   return (
-    <section className="bg-[#2C1F1A] text-white rounded-3xl p-10 sm:p-14">
+    <section className="bg-[#003D7A] text-white rounded-3xl p-10 sm:p-14">
       <div className="max-w-xl mx-auto text-center">
 
         <span
-          className="inline-block text-[#C9A55A] text-xs tracking-luxury uppercase mb-5"
+          className="inline-block text-[#0072CE] text-xs tracking-luxury uppercase mb-5"
         >
           ✦ Free Download
         </span>
@@ -18,7 +18,7 @@ export default function EmailCapture() {
           style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
         >
           The Disney Toddler Packing List
-          <em className="block" style={{ fontStyle: "italic", color: "#C4978F" }}>
+          <em className="block" style={{ fontStyle: "italic", color: "#0072CE" }}>
             We Actually Use
           </em>
         </h2>

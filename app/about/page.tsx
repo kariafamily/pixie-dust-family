@@ -26,10 +26,10 @@ export default function AboutPage() {
             </h1>
             <div className="prose prose-lg max-w-none text-[#4A5568] space-y-4">
               <p>
-                We&apos;re an Orlando-area family — husband, wife, and a toddler who has been to Walt Disney World more times than most adults we know. We started bringing her when she was 18 months old. She&apos;s been back every year since.
+                We&apos;re an Orlando-area family — husband, wife, and a toddler who has been to Walt Disney World more times than most adults we know. We started bringing him when he was 18 months old. He&apos;s been back every year since.
               </p>
               <p>
-                We keep our names off this site intentionally. Not because we&apos;re secretive, but because this blog is about the experiences, not us. Our daughter&apos;s privacy matters more than our personal brand.
+                We keep our names off this site intentionally. Not because we&apos;re secretive, but because this blog is about the experiences, not us. Our son&apos;s privacy matters more than our personal brand.
               </p>
               <p>
                 We bring the grandparents whenever we can. They&apos;re in their 70s and came into this skeptically. Now they&apos;re the ones asking when we&apos;re going back. Watching three generations experience Disney together is something we didn&apos;t expect to love as much as we do.
