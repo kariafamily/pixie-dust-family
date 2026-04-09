@@ -1,52 +1,108 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ─── MUTED LUXURY PALETTE ─────────────────────────────────────────────────
+   Dusty Rose × Soft Sage × Champagne Gold — warm, editorial, boutique
+   ───────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* Brand Colors */
-  --color-primary-blue: #003D7A;
-  --color-bright-blue: #0072CE;
-  --color-sky-blue: #E8F4FD;
-  --color-white: #FFFFFF;
-  --color-off-white: #F5F8FF;
-  --color-text-dark: #0D1B2A;
-  --color-text-muted: #4A5568;
-  --color-border-light: #D1E3F5;
+  --color-cream:        #FAF8F4;   /* warm page background         */
+  --color-blush:        #F5EDEB;   /* light rose section bg        */
+  --color-rose:         #C4978F;   /* dusty rose — accents         */
+  --color-rose-deep:    #A67B73;   /* deeper rose — hover states   */
+  --color-sage:         #8B9E89;   /* soft sage — secondary accent */
+  --color-sage-light:   #EDF1EC;   /* light sage section bg        */
+  --color-gold:         #C9A55A;   /* champagne gold — CTA         */
+  --color-gold-light:   #F7EDD8;   /* champagne tint               */
+  --color-dark:         #2C1F1A;   /* warm near-black — headlines  */
+  --color-muted:        #6B5248;   /* warm medium — body text      */
+  --color-border:       #E8DAD7;   /* soft dusty border            */
+  --color-white:        #FFFFFF;
 
-  /* Font Families */
-  --font-playfair: var(--font-playfair-display);
-  --font-dm-sans: var(--font-dm-sans);
-  --font-serif: var(--font-playfair-display), Georgia, serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-signature: var(--font-great-vibes), cursive;
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
-:root {
-  --background: #FFFFFF;
-  --foreground: #0D1B2A;
-}
+/* ─── BASE ──────────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #FAF8F4;
+  color: #2C1F1A;
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* ─── TYPOGRAPHY HELPERS ────────────────────────────────────────────────── */
+.font-display   { font-family: var(--font-cormorant), Georgia, serif; }
+.font-signature { font-family: var(--font-great-vibes), cursive; }
+
+/* Cormorant looks best at larger weights when set in italic */
+.display-italic {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
 }
 
-/* Prose overrides for MDX content */
-.prose h1, .prose h2, .prose h3 {
-  font-family: var(--font-playfair-display), Georgia, serif;
-  color: #0D1B2A;
+/* Wide letter spacing for subheaders — the "airy luxury" trick */
+.tracking-luxury { letter-spacing: 0.18em; }
+.tracking-wide-xl { letter-spacing: 0.25em; }
+
+/* ─── POLAROID CARD ─────────────────────────────────────────────────────── */
+/* Mimics a physical photo print with white border + soft shadow             */
+.polaroid {
+  background: #fff;
+  padding: 10px 10px 40px;
+  box-shadow: 0 6px 28px rgba(44, 31, 26, 0.14), 0 1px 4px rgba(44, 31, 26, 0.08);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03) translateY(-4px) !important;
+  box-shadow: 0 16px 48px rgba(44, 31, 26, 0.18);
+}
+
+/* ─── PIXIE DUST HOVER — the signature micro-interaction ────────────────── */
+/* Subtle lift + warm champagne glow. Use on cards, buttons, links.         */
+.pixie-hover {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+}
+
+.pixie-hover:hover {
+  transform: scale(1.03) translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201, 165, 90, 0.28),
+              0 4px 12px rgba(44, 31, 26, 0.08);
+}
+
+/* Gold glow variant for primary buttons */
+.pixie-hover-gold:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 165, 90, 0.45);
+}
+
+/* ─── PROSE (MDX ARTICLES) ──────────────────────────────────────────────── */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  color: #2C1F1A;
+  font-weight: 600;
+}
+
+.prose p { color: #6B5248; line-height: 1.8; }
 
 .prose a {
-  color: #0072CE;
+  color: #C9A55A;
   text-decoration: underline;
+  text-decoration-color: #C9A55A;
+  text-underline-offset: 3px;
 }
 
-.prose a:hover {
-  color: #003D7A;
+.prose a:hover { color: #A67B73; }
+
+/* ─── SECTION DIVIDER ───────────────────────────────────────────────────── */
+.divider-rose {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #C4978F, #C9A55A);
+  border-radius: 2px;
 }

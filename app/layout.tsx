@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const playfairDisplay = Playfair_Display({
+// Primary display serif — the cornerstone of the luxury feel
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair-display",
+  variable: "--font-cormorant",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
+// Signature script — used only in the Family Promise sign-off
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  variable: "--font-great-vibes",
+  display: "swap",
+  weight: ["400"],
+});
+
+// Clean body font
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -28,45 +38,24 @@ export const metadata: Metadata = {
   description:
     "Honest Walt Disney World Deluxe resort reviews from a real family with a toddler. Real photos, toddler scores, and tips from an Orlando-area family who actually stays there.",
   keywords: ["Disney World resort reviews", "Disney toddler tips", "Deluxe Disney resorts", "Walt Disney World family"],
-  openGraph: {
-    type: "website",
-    siteName: "Pixie Dust Family",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  openGraph: { type: "website", siteName: "Pixie Dust Family", locale: "en_US" },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${greatVibes.variable} ${dmSans.variable}`}>
       <body>
         <Header />
         <main>{children}</main>
         <Footer />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
             <script
               dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-                `,
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`,
               }}
             />
           </>

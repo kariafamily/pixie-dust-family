@@ -4,23 +4,32 @@ import Script from "next/script";
 
 export default function EmailCapture() {
   return (
-    <section className="bg-[#003D7A] text-white rounded-2xl p-8 sm:p-12">
+    <section className="bg-[#2C1F1A] text-white rounded-3xl p-10 sm:p-14">
       <div className="max-w-xl mx-auto text-center">
-        <span className="inline-block bg-[#0072CE] text-white text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
-          FREE
-        </span>
-        <h2
-          className="text-2xl sm:text-3xl font-bold mb-3"
-          style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+
+        <span
+          className="inline-block text-[#C9A55A] text-xs tracking-luxury uppercase mb-5"
         >
-          The Disney Toddler Packing List We Actually Use
+          ✦ Free Download
+        </span>
+
+        <h2
+          className="text-[clamp(1.8rem,4vw,2.8rem)] font-light mb-4 leading-snug"
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+        >
+          The Disney Toddler Packing List
+          <em className="block" style={{ fontStyle: "italic", color: "#C4978F" }}>
+            We Actually Use
+          </em>
         </h2>
-        <p className="text-white/80 mb-6">
-          27 items field-tested across multiple WDW trips. The things we&apos;d never leave home without — and a few things we wish we&apos;d left behind.
+
+        <p className="text-white/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto">
+          27 items field-tested across multiple WDW trips — the things we&apos;d never leave
+          home without, and a few we wish we&apos;d left behind.
         </p>
 
-        {/* Kit inline form embed */}
-        <div className="mb-4">
+        {/* Kit inline form embed — form ID 9294666 */}
+        <div className="mb-6">
           <Script
             async
             data-uid="9294666"
@@ -29,9 +38,9 @@ export default function EmailCapture() {
           />
         </div>
 
-        <p className="text-white/40 text-xs">
-          No spam, ever. Unsubscribe anytime. We respect your privacy.{" "}
-          <a href="/privacy-policy" className="underline hover:text-white/60">
+        <p className="text-white/30 text-xs tracking-wide">
+          No spam · Unsubscribe anytime ·{" "}
+          <a href="/privacy-policy" className="underline hover:text-white/50 transition-colors">
             Privacy Policy
           </a>
         </p>

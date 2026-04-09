@@ -14,34 +14,35 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#003D7A] shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F4]/95 backdrop-blur-sm border-b border-[#E8DAD7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="text-2xl">🏰</span>
+
+          {/* Logo — Cormorant + rose accent */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <span className="text-xl">✦</span>
             <span
-              className="font-bold text-lg leading-tight"
-              style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+              className="text-[#2C1F1A] text-lg font-light tracking-wide group-hover:text-[#A67B73] transition-colors"
+              style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
             >
               Pixie Dust Family
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/90 hover:text-white text-sm font-medium transition-colors"
+                className="text-[#6B5248] hover:text-[#2C1F1A] text-xs font-medium tracking-luxury uppercase transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/tips/disney-world-toddler-packing-list"
-              className="bg-[#0072CE] hover:bg-[#005fa3] text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
+              className="pixie-hover-gold bg-[#C9A55A] hover:bg-[#b89248] text-white text-xs font-medium px-5 py-2.5 rounded-full tracking-wide transition-colors"
             >
               Free Guide
             </Link>
@@ -49,16 +50,16 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-[#6B5248] p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -67,13 +68,13 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 pt-2 border-t border-white/20">
+          <div className="md:hidden pb-5 pt-3 border-t border-[#E8DAD7]">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-white/90 hover:text-white px-2 py-2 text-sm font-medium transition-colors"
+                  className="text-[#6B5248] hover:text-[#2C1F1A] px-2 py-2.5 text-sm tracking-luxury uppercase transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -81,7 +82,7 @@ export default function Header() {
               ))}
               <Link
                 href="/tips/disney-world-toddler-packing-list"
-                className="mt-2 bg-[#0072CE] hover:bg-[#005fa3] text-white text-sm font-semibold px-4 py-2 rounded-full text-center transition-colors"
+                className="mt-3 bg-[#C9A55A] text-white text-sm font-medium px-5 py-2.5 rounded-full text-center tracking-wide"
                 onClick={() => setMobileOpen(false)}
               >
                 Free Guide

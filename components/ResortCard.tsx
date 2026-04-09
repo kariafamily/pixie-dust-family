@@ -1,7 +1,5 @@
 import Link from "next/link";
 import PhotoPlaceholder from "./PhotoPlaceholder";
-import RatingStars from "./RatingStars";
-import ToddlerScore from "./ToddlerScore";
 
 interface ResortCardProps {
   title: string;
@@ -25,39 +23,46 @@ export default function ResortCard({
   return (
     <Link
       href={`/resorts/${slug}`}
-      className="group block bg-white rounded-2xl overflow-hidden border border-[#D1E3F5] hover:border-[#0072CE] transition-all hover:shadow-lg"
+      className="pixie-hover group block bg-white rounded-2xl overflow-hidden border border-[#E8DAD7] hover:border-[#C4978F] transition-colors"
     >
-      <div className="relative">
+      {/* Photo */}
+      <div className="relative overflow-hidden">
         {/* PHOTO SLOT: replace with real vacation photo */}
-        <PhotoPlaceholder label={`${title} — resort photo`} aspectRatio="16/9" />
+        <PhotoPlaceholder label={`${title} — resort photo`} aspectRatio="4/3" />
         {rank && (
-          <div className="absolute top-3 left-3 bg-[#003D7A] text-white text-xs font-bold px-2.5 py-1 rounded-full">
-            #{rank} Our Pick
+          <div className="absolute top-3 left-3 bg-[#C9A55A] text-white text-xs font-medium px-2.5 py-1 rounded-full tracking-wide">
+            #{rank}
           </div>
         )}
-        <div className="absolute top-3 right-3 bg-white text-[#003D7A] text-xs font-semibold px-2.5 py-1 rounded-full border border-[#D1E3F5]">
+        <div className="absolute top-3 right-3 bg-[#FAF8F4] text-[#6B5248] text-xs px-2.5 py-1 rounded-full border border-[#E8DAD7]">
           {tier}
         </div>
       </div>
 
+      {/* Content */}
       <div className="p-5">
         <h3
-          className="font-semibold text-[#0D1B2A] text-lg mb-1 group-hover:text-[#0072CE] transition-colors"
-          style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+          className="text-[#2C1F1A] text-xl font-light mb-2 group-hover:text-[#A67B73] transition-colors leading-snug"
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
         >
           {title}
         </h3>
 
-        <div className="flex items-center gap-3 mb-3">
-          <RatingStars rating={ourRating} size="sm" />
-          <ToddlerScore score={toddlerScore} size="sm" showLabel={false} />
+        {/* Scores as clean number pills */}
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-xs text-[#6B5248] bg-[#F5EDEB] px-2.5 py-1 rounded-full border border-[#E8DAD7]">
+            ★ {ourRating}/5
+          </span>
+          <span className="text-xs text-[#6B5248] bg-[#EDF1EC] px-2.5 py-1 rounded-full border border-[#E8DAD7]">
+            👶 {toddlerScore}/10
+          </span>
         </div>
 
-        <p className="text-[#4A5568] text-sm leading-relaxed line-clamp-2 mb-4">
+        <p className="text-[#6B5248] text-sm leading-relaxed line-clamp-2 mb-4">
           {description}
         </p>
 
-        <span className="text-[#0072CE] text-sm font-semibold group-hover:underline">
+        <span className="text-[#C9A55A] text-xs font-medium tracking-wide group-hover:underline">
           Read Review →
         </span>
       </div>
