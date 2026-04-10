@@ -25,7 +25,7 @@ const resorts = [
     tier: "Deluxe",
     ourRating: 5,
     toddlerScore: 10,
-    description: "Giraffes outside your balcony. Genuinely unmatched wow-factor for young children. Our daughter still talks about it.",
+    description: "Giraffes outside your balcony. Genuinely unmatched wow-factor for young children. Our son still talks about it.",
     rank: 2,
   },
   {
