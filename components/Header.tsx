@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/resorts", label: "Resorts" },
   { href: "/tips", label: "Tips" },
   { href: "/compare", label: "Compare" },
+  { href: "/blog", label: "Blog" },
   { href: "/plan-your-trip", label: "Plan Your Trip" },
 ];
 
