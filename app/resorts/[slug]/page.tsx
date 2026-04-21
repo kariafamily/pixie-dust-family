@@ -117,6 +117,7 @@ export default async function ResortPage({ params }: Props) {
             toddlerScore={fm.toddlerScore || 8}
             dateVisited={fm.dateVisited}
             stayLength={fm.stayLength}
+            heroImage={fm.heroImage}
           />
         </div>
 
@@ -158,7 +159,7 @@ export default async function ResortPage({ params }: Props) {
 
         {/* Photo Gallery */}
         <div className="mb-12">
-          <PhotoGallery resortName={fm.resort} labels={fm.galleryImages} />
+          <PhotoGallery resortName={fm.resort} images={fm.galleryImages} />
         </div>
 
         {/* Pros and Cons */}

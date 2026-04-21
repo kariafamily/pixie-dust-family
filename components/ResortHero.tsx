@@ -1,3 +1,4 @@
+import Image from "next/image";
 import RatingStars from "./RatingStars";
 import ToddlerScore from "./ToddlerScore";
 
@@ -8,6 +9,7 @@ interface ResortHeroProps {
   toddlerScore: number;
   dateVisited?: string;
   stayLength?: string;
+  heroImage?: string;
 }
 
 export default function ResortHero({
@@ -17,8 +19,10 @@ export default function ResortHero({
   toddlerScore,
   dateVisited,
   stayLength,
+  heroImage,
 }: ResortHeroProps) {
   return (
+    <>
     <div className="relative w-full overflow-hidden rounded-none sm:rounded-2xl bg-gradient-to-br from-[#003D7A] via-[#00519e] to-[#0072CE]">
       <div className="px-6 sm:px-10 py-14 sm:py-20">
         <div className="flex items-center gap-2 mb-4">
@@ -51,5 +55,15 @@ export default function ResortHero({
         </div>
       </div>
     </div>
+    {heroImage && (
+      <Image
+        src={heroImage}
+        alt={title}
+        width={1200}
+        height={600}
+        className="w-full object-cover"
+      />
+    )}
+    </>
   );
 }
