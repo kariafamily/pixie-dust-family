@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ResortCard from "@/components/ResortCard";
 import TipCard from "@/components/TipCard";
@@ -104,7 +105,7 @@ export default function HomePage() {
     <div className="pt-16 bg-[#F5F8FF]">
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="min-h-[80vh] flex items-center overflow-hidden">
+      <section className="min-h-[80vh] flex flex-col overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 py-20 w-full">
           <p
             className="tracking-luxury text-[#0072CE] text-xs uppercase mb-6"
@@ -151,6 +152,17 @@ export default function HomePage() {
               Free Packing List
             </Link>
           </div>
+        </div>
+
+        {/* Hero photo */}
+        <div className="relative w-full h-[55vw] max-h-[600px] min-h-[280px]">
+          <Image
+            src="/images/resorts/polynesian/polynesian-beach-grand-floridian-view.jpg"
+            alt="Polynesian Village Resort beach with Grand Floridian view"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </section>
 
