@@ -20,6 +20,7 @@ export interface MDXFrontmatter {
   travelParty?: string;
   heroImage?: string;
   galleryImages?: string[];
+  images?: string[];
   seoTitle?: string;
   seoDescription?: string;
   affiliateKey?: string;
