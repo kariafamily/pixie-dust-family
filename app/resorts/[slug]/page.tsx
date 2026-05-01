@@ -159,7 +159,7 @@ export default async function ResortPage({ params }: Props) {
 
         {/* Photo Gallery */}
         <div className="mb-12">
-          <PhotoGallery resortName={fm.resort} images={fm.galleryImages} />
+          <PhotoGallery resortName={fm.resort} images={fm.images || fm.galleryImages || []} />
         </div>
 
         {/* Pros and Cons */}
