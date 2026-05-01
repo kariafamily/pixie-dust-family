@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   description:
     "Honest Walt Disney World Deluxe resort reviews from a real family with a toddler. Real photos, toddler scores, and tips from an Orlando-area family who actually stays there.",
   keywords: ["Disney World resort reviews", "Disney toddler tips", "Deluxe Disney resorts", "Walt Disney World family"],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: { type: "website", siteName: "Pixie Dust Family", locale: "en_US" },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
