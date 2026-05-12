@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getMDXBySlug, getAllSlugs } from "@/lib/mdx";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import ResortHero from "@/components/ResortHero";
@@ -143,7 +144,7 @@ export default async function ResortPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 mb-12">
           {/* Article content */}
           <article className="prose prose-lg max-w-none">
-            <MDXRemote source={content} />
+            <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
           </article>
 
           {/* Sidebar (desktop only) */}

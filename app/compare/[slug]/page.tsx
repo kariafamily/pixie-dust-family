@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getMDXBySlug, getAllSlugs } from "@/lib/mdx";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -65,7 +66,7 @@ export default async function ComparisonPage({ params }: Props) {
         </div>
 
         <article className="prose prose-lg max-w-none mb-12">
-          <MDXRemote source={content} />
+          <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </article>
 
         <div className="mb-12">
