@@ -7,6 +7,9 @@ import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RelatedPosts from "@/components/RelatedPosts";
 import EmailCapture from "@/components/EmailCapture";
 import AuthorBox from "@/components/AuthorBox";
+import AffiliateLink from "@/components/AffiliateLink";
+import AffiliateProductBox from "@/components/AffiliateProductBox";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -37,6 +40,8 @@ export default async function ComparisonPage({ params }: Props) {
 
   return (
     <div className="pt-16">
+      {fm.hasAffiliate && <AffiliateDisclosure />}
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <BreadcrumbNav
           crumbs={[
@@ -66,7 +71,11 @@ export default async function ComparisonPage({ params }: Props) {
         </div>
 
         <article className="prose prose-lg max-w-none mb-12">
-          <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+          <MDXRemote
+            source={content}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            components={{ AffiliateLink, AffiliateProductBox }}
+          />
         </article>
 
         <div className="mb-12">
@@ -79,7 +88,8 @@ export default async function ComparisonPage({ params }: Props) {
           </div>
         )}
 
-        <EmailCapture />
+        {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
+        {/* <EmailCapture /> */}
       </div>
     </div>
   );

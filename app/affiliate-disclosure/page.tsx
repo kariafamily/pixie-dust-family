@@ -18,7 +18,7 @@ export default function AffiliateDisclosurePage() {
         >
           Affiliate Disclosure
         </h1>
-        <p className="text-[#4A5568] text-sm mb-8">Last updated: January 2025</p>
+        <p className="text-[#4A5568] text-sm mb-8">Last updated: May 2026</p>
 
         <div className="prose prose-lg max-w-none text-[#4A5568] space-y-6">
           <section>
@@ -36,12 +36,18 @@ export default function AffiliateDisclosurePage() {
 
           <section>
             <h2 className="text-[#0D1B2A]">Our Affiliate Relationships</h2>
-            <p>We maintain affiliate relationships with the following types of companies:</p>
+            <p>We maintain affiliate relationships with the following types of companies and networks:</p>
             <ul>
-              <li>Hotel booking platforms (Booking.com, Expedia)</li>
+              <li>Amazon Associates program (for gear and product recommendations)</li>
+              <li>Hotel booking platforms (Booking.com, Expedia, and others)</li>
               <li>Disney vacation specialists (Get Away Today)</li>
-              <li>Amazon Associates program (for gear recommendations)</li>
+              <li>CJ Affiliate network partners</li>
+              <li>Impact.com network partners</li>
+              <li>Direct brand affiliate programs</li>
             </ul>
+            <p>
+              All affiliate relationships — regardless of the network or program — are subject to the same disclosure standards: links are clearly identifiable, and our editorial opinions are never influenced by affiliate arrangements.
+            </p>
           </section>
 
           <section>

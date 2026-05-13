@@ -24,6 +24,7 @@ export interface MDXFrontmatter {
   seoTitle?: string;
   seoDescription?: string;
   affiliateKey?: string;
+  hasAffiliate?: boolean;
   relatedPosts?: string[];
   publishedAt?: string;
   excerpt?: string;

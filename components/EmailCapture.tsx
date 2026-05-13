@@ -8,24 +8,24 @@ export default function EmailCapture() {
       <div className="max-w-xl mx-auto text-center">
 
         <span
-          className="inline-block text-[#0072CE] text-xs tracking-luxury uppercase mb-5"
+          className="inline-block bg-[#E8F4FD] text-[#003D7A] text-xs font-semibold tracking-luxury uppercase px-3 py-1 rounded-full mb-5"
         >
-          ✦ Free Download
+          ✦ Disney Planning Email
         </span>
 
         <h2
           className="text-[clamp(1.8rem,4vw,2.8rem)] font-light mb-4 leading-snug"
           style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
         >
-          The Disney Toddler Packing List
+          Disney With a Toddler —
           <em className="block" style={{ fontStyle: "italic", color: "#0072CE" }}>
-            We Actually Use
+            Real Tips by Email
           </em>
         </h2>
 
         <p className="text-white/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto">
-          27 items field-tested across multiple WDW trips — the things we&apos;d never leave
-          home without, and a few we wish we&apos;d left behind.
+          Honest planning tips from a real family. No spam, ever. As a welcome gift, we&apos;ll
+          send you our complete Disney toddler packing list.
         </p>
 
         {/* Kit inline form embed — form ID 9294666 */}

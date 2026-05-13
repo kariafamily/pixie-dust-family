@@ -13,6 +13,9 @@ import ProConBox from "@/components/ProConBox";
 import AuthorBox from "@/components/AuthorBox";
 import RelatedPosts from "@/components/RelatedPosts";
 import EmailCapture from "@/components/EmailCapture";
+import AffiliateLink from "@/components/AffiliateLink";
+import AffiliateProductBox from "@/components/AffiliateProductBox";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import StickyAffiliateBanner from "@/components/StickyAffiliateBanner";
 
 interface Props {
@@ -100,6 +103,8 @@ export default async function ResortPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {fm.hasAffiliate && <AffiliateDisclosure />}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <BreadcrumbNav
           crumbs={[
@@ -144,7 +149,11 @@ export default async function ResortPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 mb-12">
           {/* Article content */}
           <article className="prose prose-lg max-w-none">
-            <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+            <MDXRemote
+              source={content}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              components={{ AffiliateLink, AffiliateProductBox }}
+            />
           </article>
 
           {/* Sidebar (desktop only) */}
@@ -197,10 +206,10 @@ export default async function ResortPage({ params }: Props) {
           </div>
         )}
 
-        {/* Email Capture */}
-        <div className="mb-16">
+        {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
+        {/* <div className="mb-16">
           <EmailCapture />
-        </div>
+        </div> */}
       </div>
 
       {/* Sticky Banner */}

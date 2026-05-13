@@ -68,7 +68,8 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <EmailCapture />
+          {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
+          {/* <EmailCapture /> */}
         </div>
       </div>
     </div>
