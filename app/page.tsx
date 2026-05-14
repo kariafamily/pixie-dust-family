@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ResortCard from "@/components/ResortCard";
 import TipCard from "@/components/TipCard";
@@ -105,29 +104,11 @@ export default function HomePage() {
     <div className="pt-16 bg-[#F5F8FF]">
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="min-h-[80vh] flex flex-col overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 py-20 w-full">
-          <p
-            className="tracking-luxury text-[#0072CE] text-xs uppercase mb-6"
-            style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif" }}
-          >
-            Walt Disney World · Deluxe Resorts · Orlando, Florida
-          </p>
+      <section className="flex items-center justify-center py-16 sm:py-28">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 w-full flex flex-col items-center text-center">
 
-          <h1
-            className="font-display text-[clamp(3rem,7vw,5.5rem)] leading-[1.05] font-light text-[#0D1B2A] mb-8 max-w-4xl"
-          >
-            Real Magic.{" "}
-            <em className="display-italic text-[#0072CE]">Real Toddler</em>{" "}
-            Chaos.
-          </h1>
-
-          <p className="text-[#4A5568] text-lg leading-relaxed mb-10 max-w-2xl">
-            Honest Walt Disney World Deluxe resort reviews from a family who actually stays there —
-            husband, wife, one opinionated two-year-old, and grandparents trying to keep up.
-          </p>
-
-          <div className="flex flex-wrap gap-3 mb-10">
+          {/* Pill tags */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {["🏨 Deluxe Only", "👶 Toddler Tested", "📸 Our Real Photos"].map((p) => (
               <span
                 key={p}
@@ -138,7 +119,41 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-4">
+          {/* Sparkle cluster — matches favicon shape (4-pointed polygon stars) */}
+          <div aria-hidden="true" className="mb-8">
+            <svg
+              viewBox="0 0 200 112"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-[150px] sm:w-[200px] h-auto"
+            >
+              {/* Left flanking sparkle — Bright Blue */}
+              <polygon points="30,16 34,34 52,38 34,42 30,60 26,42 8,38 26,34" fill="#0072CE" />
+              {/* Right flanking sparkle — Bright Blue, slightly higher */}
+              <polygon points="170,12 173,25 186,28 173,31 170,44 167,31 154,28 167,25" fill="#0072CE" />
+              {/* Large center sparkle — Primary Blue */}
+              <polygon points="100,23 108,57 142,65 108,73 100,107 92,73 58,65 92,57" fill="#003D7A" />
+            </svg>
+          </div>
+
+          {/* Brand name */}
+          <h1
+            className="text-[clamp(2.25rem,5vw,3rem)] font-bold text-[#003D7A] mb-4 leading-tight"
+            style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+          >
+            Pixie Dust Family
+          </h1>
+
+          {/* Intro line */}
+          <p
+            className="text-base sm:text-lg text-[#4A5568] mb-10 max-w-[600px] leading-relaxed"
+            style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif" }}
+          >
+            Honest reviews of Disney&apos;s Deluxe resorts from a real family with a real toddler.
+          </p>
+
+          {/* CTA buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/resorts"
               className="pixie-hover-gold bg-[#0072CE] hover:bg-[#005fa3] text-white font-medium px-8 py-3.5 rounded-full text-sm tracking-wide transition-colors"
@@ -149,20 +164,9 @@ export default function HomePage() {
               href="/tips/disney-world-toddler-packing-list"
               className="pixie-hover border border-[#0072CE] text-[#003D7A] hover:bg-[#E8F4FD] font-medium px-8 py-3.5 rounded-full text-sm tracking-wide transition-colors"
             >
-              Free Packing List
+              What to Pack
             </Link>
           </div>
-        </div>
-
-        {/* Hero photo */}
-        <div className="relative w-full h-[55vw] max-h-[600px] min-h-[280px]">
-          <Image
-            src="/images/resorts/polynesian/polynesian-beach-grand-floridian-view.jpg"
-            alt="Polynesian Village Resort beach with Grand Floridian view"
-            fill
-            className="object-cover"
-            priority
-          />
         </div>
       </section>
 
