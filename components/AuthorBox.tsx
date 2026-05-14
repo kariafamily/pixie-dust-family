@@ -13,9 +13,9 @@ export default function AuthorBox({ dateVisited, stayLength, travelParty }: Auth
       >
         About This Review
       </h3>
-      <p className="font-semibold text-[#0D1B2A] mb-1">An Orlando-Area Family</p>
+      <p className="font-semibold text-[#0D1B2A] mb-1">A South Florida Family</p>
       <p className="text-[#4A5568] text-sm leading-relaxed mb-4">
-        We&apos;re a husband-and-wife team based near Orlando who started visiting Walt Disney World Deluxe resorts when our toddler was just 18 months old. We bring the grandparents along whenever we can. These reviews are based on real, paid stays — no complimentary rooms, no PR trips.
+        We&apos;re a husband-and-wife team from South Florida who started visiting Walt Disney World Deluxe resorts when our toddler was just 18 months old. We bring the grandparents along whenever we can. These reviews are based on real, paid stays — no complimentary rooms, no PR trips.
       </p>
       {(dateVisited || stayLength || travelParty) && (
         <div className="flex flex-wrap gap-3 text-xs">

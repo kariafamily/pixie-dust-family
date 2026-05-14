@@ -5,7 +5,7 @@ import BreadcrumbNav from "@/components/BreadcrumbNav";
 export const metadata: Metadata = {
   title: "Our Family Story | About Pixie Dust Family",
   description:
-    "We're an Orlando-area family with a toddler and grandparents who love Walt Disney World. No real names, no sponsored posts — just honest reviews from a real family.",
+    "We're a South Florida family with a toddler and grandparents who love Walt Disney World. No real names, no sponsored posts — just honest reviews from a real family.",
 };
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
           </h1>
           <div className="prose prose-lg max-w-none text-[#4A5568] space-y-4">
             <p>
-              We&apos;re an Orlando-area family — husband, wife, and a toddler who has been to Walt Disney World more times than most adults we know. We started bringing him when he was 18 months old. He&apos;s been back every year since.
+              We&apos;re a South Florida family — husband, wife, and a toddler who has been to Walt Disney World more times than most adults we know. We drive up to Disney from Hollywood, Florida more often than most people would believe. We started bringing him when he was 18 months old. He&apos;s been back every year since.
             </p>
             <p>
               We keep our names off this site intentionally. Not because we&apos;re secretive, but because this blog is about the experiences, not us. Our son&apos;s privacy matters more than our personal brand.

@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
-              Honest Walt Disney World Deluxe resort reviews from a real Orlando-area family with a toddler — no sponsorships, no fluff.
+              Honest Walt Disney World Deluxe resort reviews from a real South Florida family with a toddler — no sponsorships, no fluff.
             </p>
             <div className="flex gap-3">
               <a href="#" aria-label="Pinterest" className="text-white/60 hover:text-white transition-colors">

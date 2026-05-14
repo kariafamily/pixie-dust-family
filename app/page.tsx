@@ -321,7 +321,7 @@ export default function HomePage() {
           <div className="divider-blue mb-8" />
 
           <p className="text-[#4A5568] leading-relaxed mb-4">
-            We&apos;re an Orlando-area family. Husband, wife, a toddler with opinions, and grandparents
+            We&apos;re a South Florida family. Husband, wife, a toddler with opinions, and grandparents
             who came in skeptically and now ask when we&apos;re going back.
           </p>
           <p className="text-[#4A5568] leading-relaxed mb-8">
