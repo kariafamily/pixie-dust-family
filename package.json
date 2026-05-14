@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "new-post": "node scripts/new-post.js",
-    "new-resort": "node scripts/new-resort.js"
+    "new-resort": "node scripts/new-resort.js",
+    "add-product": "node scripts/add-affiliate-product.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
