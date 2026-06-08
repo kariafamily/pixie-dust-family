@@ -1,111 +1,129 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
-import EmailCapture from "@/components/EmailCapture";
 
 export const metadata: Metadata = {
-  title: "Plan Your Disney World Trip | Resources & Booking",
+  title: "Plan Your Disney World Trip | Pixie Dust Family",
   description:
-    "Everything you need to plan a Walt Disney World trip with a toddler — booking resources, our resort rankings, packing lists, and planning guides.",
+    "Every article we've written, organized the way a first-time planner thinks. Pick your resort, plan your days, know what it costs, and pack right.",
 };
 
-const resources = [
+const sections = [
   {
     emoji: "🏨",
-    title: "Read Our Resort Reviews",
-    description: "Compare every Disney Deluxe resort with toddler scores, pool ratings, and grandparent notes.",
-    href: "/resorts",
-    cta: "See All Reviews",
-    bg: "bg-[#003D7A]",
+    title: "Pick Your Resort",
+    links: [
+      { label: "Animal Kingdom Lodge Review", href: "/resorts/animal-kingdom-lodge-review" },
+      { label: "Polynesian Village Resort Review", href: "/resorts/polynesian-village-resort-review" },
+      { label: "Beach Club Resort Review", href: "/resorts/beach-club-resort-review" },
+      { label: "Wilderness Lodge Review", href: "/resorts/wilderness-lodge-review" },
+      { label: "Grand Floridian Resort & Spa Review", href: "/resorts/grand-floridian-resort-review" },
+      { label: "BoardWalk Inn Review", href: "/resorts/boardwalk-inn-review" },
+    ],
   },
   {
-    emoji: "📋",
-    title: "Get the Toddler Packing List",
-    description: "27 items field-tested across multiple WDW trips. The things we'd never leave home without.",
-    href: "/tips/disney-world-toddler-packing-list",
-    cta: "View Packing List",
-    bg: "bg-[#0072CE]",
+    emoji: "📅",
+    title: "Plan Your Days",
+    links: [
+      { label: "How Many Days at Disney World with a Toddler", href: "#" },
+      { label: "Best Time of Year to Visit with a Toddler", href: "#" },
+      { label: "Magic Kingdom with a Toddler", href: "/tips/magic-kingdom-with-toddler" },
+      { label: "Animal Kingdom Park with a Toddler", href: "/tips/animal-kingdom-park-with-toddler" },
+      { label: "EPCOT Flower & Garden Festival with Toddlers", href: "/tips/epcot-flower-and-garden-festival-with-toddlers" },
+    ],
   },
   {
-    emoji: "🗺️",
-    title: "Complete Toddler Guide",
-    description: "Everything you need to know — nap strategy, best rides, character meetings, and what to skip.",
-    href: "/tips/disney-world-with-toddler-complete-guide",
-    cta: "Read the Guide",
-    bg: "bg-[#003D7A]",
+    emoji: "💰",
+    title: "Know What It Costs",
+    links: [
+      { label: "Disney World Trip Cost Breakdown", href: "#" },
+      { label: "Is the Disney Dining Plan Worth It?", href: "#" },
+      { label: "Disney World Resort vs. Off-Site Hotels", href: "#" },
+    ],
   },
   {
-    emoji: "⚖️",
-    title: "Compare Resorts",
-    description: "Can't decide between two resorts? We've done the side-by-side comparisons.",
-    href: "/compare",
-    cta: "See Comparisons",
-    bg: "bg-[#0072CE]",
+    emoji: "🎒",
+    title: "Pack & Prepare",
+    links: [
+      { label: "Disney World Toddler Packing List", href: "/tips/disney-world-toddler-packing-list" },
+      { label: "Best Stroller for Disney World", href: "/tips/best-stroller-for-disney-world" },
+      { label: "Disney World Nap Strategy", href: "/tips/disney-world-nap-strategy" },
+      { label: "Disney World with a Toddler: Complete Guide", href: "/tips/disney-world-with-toddler-complete-guide" },
+    ],
+  },
+  {
+    emoji: "🍽️",
+    title: "Where to Eat",
+    links: [
+      { label: "'Ohana Character Breakfast Review", href: "/tips/ohana-character-breakfast-review" },
+      { label: "Kilimanjaro Safaris with a Toddler", href: "/tips/kilimanjaro-safaris-with-toddler" },
+    ],
+  },
+  {
+    emoji: "👴👵",
+    title: "With Grandparents",
+    links: [
+      { label: "Disney World with Grandparents", href: "/tips/disney-world-with-grandparents" },
+    ],
   },
 ];
 
 export default function PlanYourTripPage() {
   return (
-    <div className="pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <BreadcrumbNav crumbs={[{ label: "Home", href: "/" }, { label: "Plan Your Trip" }]} />
-
-        <div className="text-center mb-12">
-          <p className="text-[#0072CE] text-sm font-semibold uppercase tracking-wider mb-3">Planning Hub</p>
+    <div>
+      {/* Dark navy gradient header */}
+      <section
+        className="py-16 px-6"
+        style={{ background: "linear-gradient(135deg, #001A3D 0%, #003D7A 100%)" }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#C9963A", letterSpacing: "0.1em" }}>
+            Everything in One Place
+          </p>
           <h1
-            className="text-4xl sm:text-5xl font-bold text-[#0D1B2A] mb-4"
-            style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+            className="font-bold text-white mb-4"
+            style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Plan Your Disney World Trip
+            Plan Your Trip
           </h1>
-          <p className="text-[#4A5568] max-w-xl mx-auto text-lg">
-            Everything in one place — resort reviews, guides, packing lists, and the honest advice we wish we had before our first trip.
+          <p className="text-base max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+            Every article we&apos;ve written, organized the way a first-time planner thinks. Start here, work through each section, leave with a real plan.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
-          {resources.map((resource) => (
-            <Link
-              key={resource.href}
-              href={resource.href}
-              className={`group block ${resource.bg} text-white rounded-2xl p-8 hover:opacity-90 transition-opacity`}
-            >
-              <span className="text-4xl mb-4 block">{resource.emoji}</span>
+      {/* Content sections */}
+      <div className="max-w-4xl mx-auto px-6 py-12 space-y-6">
+        {sections.map((section) => (
+          <div key={section.title} className="rounded-2xl overflow-hidden" style={{ border: "1px solid #E2DDD6" }}>
+            {/* Section header */}
+            <div className="flex items-center gap-3 px-6 py-4" style={{ backgroundColor: "#003D7A" }}>
+              <span className="text-xl">{section.emoji}</span>
               <h2
-                className="text-xl font-bold mb-2"
-                style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+                className="font-bold text-white text-lg"
+                style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
               >
-                {resource.title}
+                {section.title}
               </h2>
-              <p className="text-white/80 mb-4 text-sm">{resource.description}</p>
-              <span className="text-white font-semibold group-hover:underline text-sm">
-                {resource.cta} →
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        {/* Affiliate note */}
-        <div className="bg-[#F5F8FF] border border-[#D1E3F5] rounded-2xl p-6 mb-12">
-          <h2
-            className="text-xl font-bold text-[#0D1B2A] mb-3"
-            style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
-          >
-            A Note on Booking
-          </h2>
-          <p className="text-[#4A5568] text-sm leading-relaxed">
-            Some links on this site are affiliate links — if you book through them, we may earn a small commission at no extra cost to you. We only recommend services we&apos;ve actually used or that we&apos;d genuinely consider using. Our editorial opinions are never influenced by affiliate relationships. See our{" "}
-            <Link href="/affiliate-disclosure" className="text-[#0072CE] underline">
-              full affiliate disclosure
-            </Link>{" "}
-            for details.
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto">
-          {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
-          {/* <EmailCapture /> */}
-        </div>
+            </div>
+            {/* Links */}
+            <div className="bg-white">
+              {section.links.map((link, i) => (
+                <Link
+                  key={link.href + i}
+                  href={link.href}
+                  className="flex items-center justify-between px-6 py-3.5 text-sm transition-colors hover:bg-[#E8F4FD]"
+                  style={{
+                    borderBottom: i < section.links.length - 1 ? "1px solid #F5F0E8" : "none",
+                    color: "#1A1A2E",
+                  }}
+                >
+                  <span>{link.label}</span>
+                  <span style={{ color: "#0072CE" }}>→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

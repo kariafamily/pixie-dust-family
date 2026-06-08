@@ -6,6 +6,7 @@ export interface MDXFrontmatter {
   title: string;
   slug: string;
   type: "resort-review" | "tip-guide" | "comparison" | "blog";
+  // Resort metadata
   resort?: string;
   tier?: string;
   ourRating?: number;
@@ -18,19 +19,40 @@ export interface MDXFrontmatter {
   dateVisited?: string;
   stayLength?: string;
   travelParty?: string;
+  pricePerNight?: string;
+  pricingContext?: string;
+  location?: string;
+  transport?: string;
+  pool?: string;
+  bestRoom?: string;
+  bookingUrl?: string;
+  compareTo?: string;
+  compareUrl?: string;
+  // Images
   heroImage?: string;
+  heroAlt?: string;
   galleryImages?: string[];
   images?: string[];
+  // SEO
   seoTitle?: string;
   seoDescription?: string;
+  // Affiliates
   affiliateKey?: string;
   hasAffiliate?: boolean;
+  // Relations
   relatedPosts?: string[];
+  toc?: string[];
+  // Dates — publishedAt for guides/reviews, date for blog posts
   publishedAt?: string;
+  date?: string;
+  // Content metadata
   excerpt?: string;
   category?: string;
   readTime?: string;
   icon?: string;
+  // Blog-specific
+  featured?: boolean;
+  videoId?: string;
 }
 
 export interface MDXContent {

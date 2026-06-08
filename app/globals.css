@@ -5,18 +5,31 @@
    Primary Blue × Bright Blue × Sky Blue — trustworthy, Disney-adjacent
    ───────────────────────────────────────────────────────────────────────── */
 @theme {
-  --color-primary-blue:  #003D7A;   /* main backgrounds, nav, dark sections  */
-  --color-bright-blue:   #0072CE;   /* buttons, links, accents, CTAs         */
-  --color-sky-blue:      #E8F4FD;   /* light section backgrounds             */
+  /* ── Core palette ── */
+  --color-navy:          #003D7A;   /* nav, dark section backgrounds         */
+  --color-blue:          #0072CE;   /* buttons, links, CTAs                  */
+  --color-sky:           #E8F4FD;   /* light section backgrounds             */
+  --color-sand:          #F5F0E8;   /* warm off-white backgrounds            */
   --color-white:         #FFFFFF;   /* main content background               */
-  --color-off-white:     #F5F8FF;   /* soft page backgrounds                 */
-  --color-text-dark:     #0D1B2A;   /* headlines, body text                  */
-  --color-text-muted:    #4A5568;   /* secondary text, captions              */
-  --color-border-light:  #D1E3F5;   /* subtle borders, dividers              */
+  --color-gold:          #C9963A;   /* toddler score, #1 badge, divider pill */
+  --color-text:          #1A1A2E;   /* body and heading text                 */
+  --color-muted:         #6B7280;   /* secondary text, captions              */
+  --color-border:        #E2DDD6;   /* warm card borders                     */
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-signature: var(--font-great-vibes), cursive;
-  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  /* ── Legacy aliases (keep for existing components) ── */
+  --color-primary-blue:  #003D7A;
+  --color-bright-blue:   #0072CE;
+  --color-sky-blue:      #E8F4FD;
+  --color-off-white:     #F5F0E8;
+  --color-text-dark:     #1A1A2E;
+  --color-text-muted:    #6B7280;
+  --color-border-light:  #E2DDD6;
+
+  /* ── Fonts ── */
+  --font-display:    var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-serif:      var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-signature:  var(--font-great-vibes), cursive;
+  --font-sans:       var(--font-dm-sans), system-ui, sans-serif;
 }
 
 /* ─── BASE ──────────────────────────────────────────────────────────────── */

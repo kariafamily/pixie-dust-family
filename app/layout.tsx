@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
+import { Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import TrustBar from "@/components/TrustBar";
 import Footer from "@/components/Footer";
 
-// Primary display serif — the cornerstone of the luxury feel
+// Primary heading font
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
+
+// Secondary display serif
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-cormorant",
@@ -52,9 +62,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${greatVibes.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${greatVibes.variable} ${dmSans.variable}`}>
       <body>
         <Header />
+        <TrustBar />
         <main>{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-45LZB9R0YJ" />

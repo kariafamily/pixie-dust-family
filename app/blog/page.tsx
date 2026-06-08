@@ -1,209 +1,110 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
+import Link from "next/link";
 import { getAllMDXByType, MDXFrontmatter } from "@/lib/mdx";
+import BlogClientFilter from "./BlogClientFilter";
 
 export const metadata: Metadata = {
-  title: "Disney World Guides & Articles | Pixie Dust Family",
+  title: "The Blog | Disney World Stories & Tips | Pixie Dust Family",
   description:
-    "Planning guides, packing lists, nap strategies, stroller reviews, resort comparisons — everything a real family with a toddler needs for Walt Disney World.",
+    "Stories from the parks, dining reviews, strategy guides, and trip reports from a real family visiting Disney World with a toddler.",
 };
 
-type ArticleEntry = MDXFrontmatter & { _href: string };
-
-const categoryLabel: Record<string, string> = {
-  "tip-guide":     "Guide",
-  "comparison":    "Comparison",
-  "resort-review": "Resort Review",
-  "blog":          "Blog",
-};
+type BlogPost = MDXFrontmatter & { _href: string };
 
 export default function BlogPage() {
-  const blogPosts: ArticleEntry[] = getAllMDXByType("blog").map((f) => ({
+  const allPosts: BlogPost[] = getAllMDXByType("blog").map((f) => ({
     ...f,
     _href: `/blog/${f.slug}`,
   }));
-  const tips: ArticleEntry[] = getAllMDXByType("tips").map((f) => ({
-    ...f,
-    _href: `/tips/${f.slug}`,
-  }));
-  const compares: ArticleEntry[] = getAllMDXByType("compare").map((f) => ({
-    ...f,
-    _href: `/compare/${f.slug}`,
-  }));
-  const resortReviews: ArticleEntry[] = getAllMDXByType("resorts").map((f) => ({
-    ...f,
-    _href: `/resorts/${f.slug}`,
-  }));
+
+  const sorted = [...allPosts].sort((a, b) => {
+    const dA = a.date || a.publishedAt || "";
+    const dB = b.date || b.publishedAt || "";
+    return dB.localeCompare(dA);
+  });
+
+  const featured = sorted.find((p) => p.featured) ?? sorted[0] ?? null;
+  const rest = sorted.filter((p) => p !== featured);
 
   return (
-    <div className="pt-16" style={{ color: '#1a1a1a' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <BreadcrumbNav crumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
-
-        <div className="mb-12">
-          <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#6b7280', letterSpacing: '0.05em' }}>
-            Guides, Tips &amp; Reviews
+    <div>
+      {/* Navy header */}
+      <section className="py-14 px-6" style={{ backgroundColor: "#003D7A" }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#C9963A", letterSpacing: "0.1em" }}>
+            Stories from the Parks
           </p>
           <h1
-            className="text-[clamp(2.2rem,5vw,3.5rem)] font-light text-[#0D1B2A] mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+            className="font-bold text-white mb-4"
+            style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            The Pixie Dust Family Blog
+            The Blog
           </h1>
-          <p className="max-w-xl leading-relaxed" style={{ color: '#4b5563' }}>
-            Planning guides, honest resort reviews, packing lists, stroller picks, and everything else we&apos;ve learned taking a toddler to Walt Disney World.
+          <p className="text-base max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+            Parks, strategy, dining, and trip reports — all from a real family who visits multiple times a year.
           </p>
         </div>
+      </section>
 
-        {/* Latest Posts — only shown when content/blog/ has entries */}
-        {blogPosts.length > 0 && (
-          <Section title="Latest Posts">
-            {blogPosts.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </Section>
-        )}
-
-        <Section title="Planning Guides &amp; Tips">
-          {tips.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </Section>
-
-        <Section title="Resort Comparisons">
-          {compares.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </Section>
-
-        <Section title="Resort Reviews">
-          {resortReviews.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </Section>
-
-        {/* YouTube banner */}
-        <div className="mb-8 rounded-2xl overflow-hidden" style={{ backgroundColor: '#003087' }}>
-          <div className="px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>
-                Watch on YouTube
-              </p>
-              <h2
-                className="text-2xl font-light text-white mb-2 leading-snug"
-                style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
-              >
-                See our Disney trips in action
-              </h2>
-              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                Real footage, honest reactions, and our toddler&apos;s unfiltered Disney moments.
-              </p>
-            </div>
-            <a
-              href="https://www.youtube.com/@pixiedustfamily"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-80"
-              style={{ border: '2px solid white' }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-              </svg>
-              Watch Now →
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="mb-14">
-      <h2
-        className="mb-6 pb-3 border-b border-[#e5e7eb]"
-        style={{
-          fontFamily: "var(--font-cormorant), Georgia, serif",
-          color: '#0a0a0a',
-          fontWeight: 800,
-          fontSize: 'clamp(1.4rem, 3vw, 1.75rem)',
-        }}
-        dangerouslySetInnerHTML={{ __html: title }}
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function ArticleCard({ article }: { article: ArticleEntry }) {
-  const label = categoryLabel[article.type] ?? "Article";
-
-  return (
-    <Link
-      href={article._href}
-      className="group block bg-white rounded-2xl border border-[#e5e7eb] overflow-hidden transition-all duration-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.10)] hover:-translate-y-0.5"
-    >
-      {/* Thumbnail — 16:9, shown when heroImage is present */}
-      {article.heroImage && (
-        <div className="relative w-full aspect-video bg-[#f3f4f6]">
-          <Image
-            src={article.heroImage}
-            alt={article.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        </div>
-      )}
-
-      <div className="p-6">
-        {/* Category label + date */}
-        <div className="flex items-center justify-between mb-2">
-          <span style={{
-            color: '#6b7280',
-            fontSize: '11px',
-            fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-          }}>
-            {label}
-          </span>
-          {article.publishedAt && (
-            <span className="text-xs" style={{ color: '#6b7280' }}>
-              {new Date(article.publishedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
-            </span>
-          )}
-        </div>
-
-        {/* Title — 2 lines */}
-        <h3
-          className="mb-2 leading-snug line-clamp-2"
-          style={{
-            color: '#0a0a0a',
-            fontWeight: 700,
-            fontSize: 'clamp(1.1rem, 2vw, 1.2rem)',
-            fontFamily: "var(--font-playfair-display), Georgia, serif",
-          }}
-        >
-          {article.title}
-        </h3>
-
-        {/* Excerpt — 2 lines */}
-        {article.seoDescription && (
-          <p className="text-sm leading-relaxed line-clamp-2 mb-4" style={{ color: '#4b5563', fontWeight: 400 }}>
-            {article.seoDescription}
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        {allPosts.length === 0 ? (
+          <p className="text-center py-20 text-sm" style={{ color: "#6B7280" }}>
+            No posts yet — check back soon.
           </p>
-        )}
+        ) : (
+          <>
+            {/* Featured post */}
+            {featured && (
+              <div className="mb-12">
+                <Link href={featured._href}
+                  className="group block bg-white rounded-2xl overflow-hidden transition-all hover:shadow-[0_6px_24px_rgba(0,0,0,0.10)] hover:-translate-y-0.5"
+                  style={{ border: "1px solid #E2DDD6" }}>
+                  {featured.heroImage && (
+                    <div className="relative w-full" style={{ height: "180px" }}>
+                      <Image src={featured.heroImage} alt={featured.title} fill className="object-cover" sizes="100vw" />
+                      <div className="absolute top-3 left-3">
+                        <span className="text-xs font-bold px-2.5 py-1 rounded-full"
+                          style={{ backgroundColor: "#C9963A", color: "#ffffff" }}>
+                          FEATURED
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="p-6" style={{ borderLeft: "3px solid #0072CE" }}>
+                    {featured.category && (
+                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#6B7280" }}>
+                        {featured.category}
+                      </span>
+                    )}
+                    <h2
+                      className="font-bold text-xl mt-1 mb-2 leading-snug group-hover:text-[#003D7A] transition-colors"
+                      style={{ color: "#1A1A2E", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                    >
+                      {featured.title}
+                    </h2>
+                    {(featured.excerpt || featured.seoDescription) && (
+                      <p className="text-sm leading-relaxed mb-3 line-clamp-2" style={{ color: "#6B7280" }}>
+                        {featured.excerpt || featured.seoDescription}
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold" style={{ color: "#0072CE" }}>Read →</span>
+                      {(featured.date || featured.publishedAt) && (
+                        <span className="text-xs" style={{ color: "#6B7280" }}>
+                          {new Date((featured.date || featured.publishedAt)!).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            )}
 
-        <span className="text-xs font-semibold" style={{ color: '#003087' }}>
-          Read more →
-        </span>
+            {rest.length > 0 && <BlogClientFilter posts={rest} />}
+          </>
+        )}
       </div>
-    </Link>
+    </div>
   );
 }

@@ -1,30 +1,26 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getMDXBySlug, getAllSlugs } from "@/lib/mdx";
+import { getRelatedArticles } from "@/lib/related-articles";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
-import ResortHero from "@/components/ResortHero";
-import QuickStats from "@/components/QuickStats";
-import AffiliateBox from "@/components/AffiliateBox";
-import TableOfContents from "@/components/TableOfContents";
-import PhotoGallery from "@/components/PhotoGallery";
-import ProConBox from "@/components/ProConBox";
-import AuthorBox from "@/components/AuthorBox";
-import RelatedPosts from "@/components/RelatedPosts";
-import EmailCapture from "@/components/EmailCapture";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import AffiliateLink from "@/components/AffiliateLink";
 import AffiliateProductBox from "@/components/AffiliateProductBox";
-import AffiliateDisclosure from "@/components/AffiliateDisclosure";
-import StickyAffiliateBanner from "@/components/StickyAffiliateBanner";
+import PartDivider from "@/components/PartDivider";
+import GrandparentNote from "@/components/GrandparentNote";
+import ProTip from "@/components/ProTip";
+import SpecBox from "@/components/SpecBox";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs("resorts");
-  return slugs.map((slug) => ({ slug }));
+  return getAllSlugs("resorts").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -41,21 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: fm.publishedAt,
     },
-    alternates: {
-      canonical: `https://pixiedustfamily.com/resorts/${slug}`,
-    },
+    alternates: { canonical: `https://pixiedustfamily.com/resorts/${slug}` },
   };
 }
-
-const tocItems = [
-  { id: "our-take", label: "Our Take", level: 2 as const },
-  { id: "the-pool", label: "The Pool", level: 2 as const },
-  { id: "dining", label: "Dining", level: 2 as const },
-  { id: "the-room", label: "The Room", level: 2 as const },
-  { id: "toddler-breakdown", label: "Toddler Breakdown", level: 2 as const },
-  { id: "grandparent-notes", label: "Grandparent Notes", level: 2 as const },
-  { id: "is-it-worth-the-price", label: "Is It Worth the Price?", level: 2 as const },
-];
 
 export default async function ResortPage({ params }: Props) {
   const { slug } = await params;
@@ -63,6 +47,7 @@ export default async function ResortPage({ params }: Props) {
   if (!post) notFound();
 
   const { frontmatter: fm, content } = post;
+  const related = getRelatedArticles(slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -72,40 +57,55 @@ export default async function ResortPage({ params }: Props) {
       name: fm.resort || fm.title,
       address: { "@type": "PostalAddress", addressLocality: "Orlando", addressRegion: "FL" },
     },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: fm.ourRating,
-      bestRating: 5,
-    },
+    reviewRating: { "@type": "Rating", ratingValue: fm.ourRating, bestRating: 5 },
     author: { "@type": "Organization", name: "Pixie Dust Family" },
     datePublished: fm.publishedAt,
     reviewBody: fm.seoDescription,
   };
 
-  const pros = [
-    "Exceptional location on Disney property",
-    "Beautiful theming throughout",
-    "Excellent dining options on site",
-    "Memorable experience for the whole family",
-    "High-quality pool and recreation areas",
-  ];
-
-  const cons = [
-    "Premium pricing within the Deluxe category",
-    "Can be very busy during peak season",
-    "Some areas require more walking",
-  ];
-
   return (
     <div className="pt-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {fm.hasAffiliate && <AffiliateDisclosure />}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Full-width hero image — 260px, gradient overlay */}
+      {fm.heroImage && (
+        <div className="relative w-full overflow-hidden" style={{ height: "260px" }}>
+          <Image
+            src={fm.heroImage}
+            alt={fm.heroAlt || fm.resort || fm.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Bottom-to-top gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)" }}
+          />
+          {/* H1 and badge overlaid bottom-left */}
+          <div className="absolute bottom-0 left-0 px-6 pb-5 max-w-3xl">
+            {fm.tier && (
+              <span
+                className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.9)", backdropFilter: "blur(4px)" }}
+              >
+                {fm.tier} Resort
+              </span>
+            )}
+            <h1
+              className="text-white text-2xl sm:text-3xl font-bold leading-tight"
+              style={{ fontFamily: "var(--font-playfair), Georgia, serif", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
+            >
+              {fm.resort || fm.title}
+            </h1>
+          </div>
+        </div>
+      )}
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <BreadcrumbNav
           crumbs={[
             { label: "Home", href: "/" },
@@ -114,111 +114,113 @@ export default async function ResortPage({ params }: Props) {
           ]}
         />
 
-        {/* Hero */}
-        <div className="mb-6">
-          <ResortHero
-            title={fm.resort || fm.title}
-            tier={fm.tier || "Deluxe"}
-            ourRating={fm.ourRating || 5}
-            toddlerScore={fm.toddlerScore || 8}
-            dateVisited={fm.dateVisited}
-            stayLength={fm.stayLength}
-            heroImage={fm.heroImage}
-          />
-        </div>
-
-        {/* Quick Stats */}
-        <div className="mb-8">
-          <QuickStats
-            tier={fm.tier}
-            bestFor={fm.bestFor}
-            poolRating={fm.poolRating}
-            toddlerScore={fm.toddlerScore}
-            diningRating={fm.diningRating}
-          />
-        </div>
-
-        {/* Top Affiliate Box */}
-        {fm.affiliateKey && (
-          <div className="mb-10">
-            <AffiliateBox affiliateKey={fm.affiliateKey} placement="top" />
-          </div>
-        )}
-
-        {/* Main Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 mb-12">
-          {/* Article content */}
-          <article className="prose prose-lg max-w-none">
-            <MDXRemote
-              source={content}
-              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-              components={{ AffiliateLink, AffiliateProductBox }}
+        {/* Spec Box */}
+        {(fm.ourRating || fm.toddlerScore) && (
+          <div className="mb-8">
+            <SpecBox
+              ourRating={fm.ourRating ?? 4}
+              toddlerScore={fm.toddlerScore ?? 8}
+              pricePerNight={fm.pricePerNight}
+              pricingContext={fm.pricingContext}
+              location={fm.location}
+              transport={fm.transport}
+              pool={fm.pool}
+              bestRoom={fm.bestRoom}
+              bookingUrl={fm.bookingUrl}
+              dateVisited={fm.dateVisited}
+              stayLength={fm.stayLength}
             />
-          </article>
+          </div>
+        )}
 
-          {/* Sidebar (desktop only) */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24 space-y-6">
-              <TableOfContents items={tocItems} />
-              {fm.affiliateKey && (
-                <AffiliateBox affiliateKey={fm.affiliateKey} placement="bottom" />
-              )}
-            </div>
-          </aside>
-        </div>
-
-        {/* Photo Gallery */}
-        <div className="mb-12">
-          <PhotoGallery resortName={fm.resort} images={fm.images || fm.galleryImages || []} />
-        </div>
-
-        {/* Pros and Cons */}
-        <div className="mb-12">
-          <h2
-            className="text-2xl font-bold text-[#0D1B2A] mb-6"
-            style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
+        {/* Table of contents */}
+        {fm.toc && fm.toc.length > 0 && (
+          <div
+            className="rounded-xl px-6 py-5 mb-8 not-prose"
+            style={{ backgroundColor: "#E8F4FD", border: "1px solid #D1E3F5" }}
           >
-            Pros & Cons
-          </h2>
-          <ProConBox pros={pros} cons={cons} />
-        </div>
-
-        {/* Bottom Affiliate Box */}
-        {fm.affiliateKey && (
-          <div className="mb-12">
-            <AffiliateBox affiliateKey={fm.affiliateKey} placement="bottom" />
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#003D7A" }}>
+              In This Review
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+              {fm.toc.map((item, i) => (
+                <a
+                  key={i}
+                  href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                  className="text-sm transition-colors hover:text-[#003D7A]"
+                  style={{ color: "#0072CE" }}
+                >
+                  {i + 1}. {item}
+                </a>
+              ))}
+            </div>
           </div>
         )}
 
-        {/* Author Box */}
-        <div className="mb-12">
-          <AuthorBox
-            dateVisited={fm.dateVisited}
-            stayLength={fm.stayLength}
-            travelParty={fm.travelParty}
+        {/* Article body */}
+        <article className="prose prose-lg max-w-none mb-12">
+          <MDXRemote
+            source={content}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            components={{ AffiliateLink, AffiliateProductBox, PartDivider, GrandparentNote, ProTip }}
           />
-        </div>
+        </article>
 
-        {/* Related Posts */}
-        {fm.relatedPosts && fm.relatedPosts.length > 0 && (
-          <div className="mb-12">
-            <RelatedPosts slugs={fm.relatedPosts} currentSlug={slug} />
+        {/* Related articles */}
+        {related.length > 0 && (
+          <div className="mb-12 not-prose">
+            <h2
+              className="text-xl font-bold mb-5"
+              style={{ color: "#1A1A2E", fontFamily: "var(--font-playfair), Georgia, serif" }}
+            >
+              Related Articles
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {related.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={article.href}
+                  className="block rounded-xl p-4 transition-all hover:-translate-y-0.5"
+                  style={{
+                    border: "1px solid #E2DDD6",
+                    backgroundColor: "#fff",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider block mb-1"
+                    style={{ color: "#0072CE" }}
+                  >
+                    {article.type === "comparison" ? "Comparison" : article.type === "resort-review" ? "Resort Review" : "Guide"}
+                  </span>
+                  <span className="text-sm font-medium" style={{ color: "#1A1A2E" }}>
+                    {article.title} →
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         )}
 
-        {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
-        {/* <div className="mb-16">
-          <EmailCapture />
-        </div> */}
+        {/* Compare CTA */}
+        {fm.compareTo && fm.compareUrl && (
+          <div
+            className="rounded-xl px-6 py-5 mb-8 not-prose flex items-center justify-between gap-4"
+            style={{ backgroundColor: "#E8F4FD", border: "1px solid #D1E3F5" }}
+          >
+            <p className="text-sm" style={{ color: "#003D7A" }}>
+              <strong>Deciding between resorts?</strong> Compare {fm.resort || "this resort"} vs. {fm.compareTo}
+            </p>
+            <Link
+              href={fm.compareUrl}
+              className="text-sm font-semibold whitespace-nowrap transition-opacity hover:opacity-70"
+              style={{ color: "#0072CE" }}
+            >
+              See Comparison →
+            </Link>
+          </div>
+        )}
       </div>
-
-      {/* Sticky Banner */}
-      {fm.affiliateKey && (
-        <StickyAffiliateBanner
-          resortName={fm.resort || fm.title}
-          affiliateKey={fm.affiliateKey}
-        />
-      )}
     </div>
   );
 }
