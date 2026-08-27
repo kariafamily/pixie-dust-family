@@ -287,7 +287,7 @@ products['disney-mickey-teeny-compact-stroller'] = {
   name: 'Mickey Mouse Teeny Compact Stroller',
   shortDescription: 'A compact, umbrella-style stroller that folds small for park days and travel.',
   affiliateProgram: 'amazon',
-  amazonAsin: 'B07GRJCRQ8',
+  amazonAsin: 'B088QLBHC8',
   category: 'gear',
 };
 
@@ -296,7 +296,7 @@ products['jl-childress-side-sling-cargo-net'] = {
   name: 'Side Sling Stroller Cargo Net',
   shortDescription: 'A stroller cargo net that hangs off the side for extra storage.',
   affiliateProgram: 'amazon',
-  amazonAsin: 'B088QLBHC8',
+  amazonAsin: 'B084WKM7DP',
   category: 'gear',
 };
 
@@ -305,7 +305,7 @@ products['jl-childress-stroller-organizer-xl'] = {
   name: 'Stroller Organizer XL',
   shortDescription: 'An extra-large stroller organizer with cup holders and storage pockets.',
   affiliateProgram: 'amazon',
-  amazonAsin: 'B084WKM7DP',
+  amazonAsin: 'B084WZ664Y',
   category: 'gear',
 };
 
