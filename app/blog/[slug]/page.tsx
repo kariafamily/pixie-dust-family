@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -71,6 +72,19 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           )}
         </div>
+
+        {fm.heroImage && (
+          <div className="relative w-full overflow-hidden rounded-2xl mb-8" style={{ height: "320px" }}>
+            <Image
+              src={fm.heroImage}
+              alt={fm.heroAlt || fm.title}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+        )}
 
         <article className="prose prose-lg max-w-none mb-12">
           <MDXRemote
