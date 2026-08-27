@@ -227,3 +227,111 @@ products['disney-three-caballeros-classic-tshirt'] = {
   amazonAsin: 'B09S1BSXPM',
   category: 'apparel',
 };
+
+products['jay-franco-mickey-beach-towel'] = {
+  id: 'jay-franco-mickey-beach-towel',
+  name: 'Mickey Mouse Beach Towel',
+  shortDescription: 'A Mickey Mouse beach towel for pool days and beach trips.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B09LG4HWSV',
+  category: 'gear',
+};
+
+products['thermos-funtainer-mickey-food-jar'] = {
+  id: 'thermos-funtainer-mickey-food-jar',
+  name: 'Funtainer Mickey Mouse Food Jar',
+  shortDescription: 'An insulated food jar in a Mickey Mouse design, keeps food warm or cold through a park day.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B09WGCNYK7',
+  category: 'food',
+};
+
+products['bumkins-disney-snack-bags'] = {
+  id: 'bumkins-disney-snack-bags',
+  name: 'Disney Reusable Snack Bags',
+  shortDescription: 'Reusable, washable Disney-print snack bags for portioning toddler snacks.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0DSM2J9PC',
+  category: 'food',
+};
+
+products['jl-childress-twocool-breastmilk-cooler'] = {
+  id: 'jl-childress-twocool-breastmilk-cooler',
+  name: 'TwoCool Breast Milk Cooler',
+  shortDescription: 'An insulated cooler bag that keeps bottles of breast milk cold on the go.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B084WLBRMH',
+  category: 'food',
+};
+
+products['simple-modern-minnie-water-bottle-32oz'] = {
+  id: 'simple-modern-minnie-water-bottle-32oz',
+  name: 'Minnie Mouse Insulated Water Bottle (32oz)',
+  shortDescription: 'A 32oz insulated water bottle in a Minnie Mouse design.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0BNJYH4BM',
+  category: 'gear',
+};
+
+products['whiskware-disney-stackable-snack-containers'] = {
+  id: 'whiskware-disney-stackable-snack-containers',
+  name: 'Disney Stackable Snack Containers',
+  shortDescription: 'Stackable, spill-resistant snack containers with a Disney design.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0B6GQKCNY',
+  category: 'food',
+};
+
+products['disney-mickey-teeny-compact-stroller'] = {
+  id: 'disney-mickey-teeny-compact-stroller',
+  name: 'Mickey Mouse Teeny Compact Stroller',
+  shortDescription: 'A compact, umbrella-style stroller that folds small for park days and travel.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07GRJCRQ8',
+  category: 'gear',
+};
+
+products['jl-childress-side-sling-cargo-net'] = {
+  id: 'jl-childress-side-sling-cargo-net',
+  name: 'Side Sling Stroller Cargo Net',
+  shortDescription: 'A stroller cargo net that hangs off the side for extra storage.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B088QLBHC8',
+  category: 'gear',
+};
+
+products['jl-childress-stroller-organizer-xl'] = {
+  id: 'jl-childress-stroller-organizer-xl',
+  name: 'Stroller Organizer XL',
+  shortDescription: 'An extra-large stroller organizer with cup holders and storage pockets.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B084WKM7DP',
+  category: 'gear',
+};
+
+products['fisher-price-mickey-friends-figures'] = {
+  id: 'fisher-price-mickey-friends-figures',
+  name: 'Mickey Mouse & Friends Figure Set',
+  shortDescription: 'A set of small Mickey Mouse & Friends figures for quiet play in line or on the plane.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0DR3XZJSD',
+  category: 'entertainment',
+};
+
+products['tonies-moana-audio-figurine'] = {
+  id: 'tonies-moana-audio-figurine',
+  name: 'Moana Audio Figurine',
+  shortDescription: 'A Tonies audio figurine that plays Moana story and songs on a Toniebox — screen-free entertainment for travel.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B093TPP32X',
+  category: 'entertainment',
+};
+
+products['melissa-doug-mickey-magnets'] = {
+  id: 'melissa-doug-mickey-magnets',
+  name: 'Mickey Mouse Wooden Magnets',
+  shortDescription: 'A wooden magnet activity set for quiet, screen-free play.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B00P2SL7JI',
+  category: 'entertainment',
+};
