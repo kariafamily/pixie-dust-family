@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
+  async redirects() {
+    return [
+      { source: "/tips/:slug", destination: "/blog/:slug", permanent: true },
+      { source: "/tips", destination: "/blog", permanent: true },
+    ];
+  },
 };
 
 export default withMDX(nextConfig);

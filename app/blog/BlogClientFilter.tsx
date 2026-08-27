@@ -7,7 +7,7 @@ import type { MDXFrontmatter } from "@/lib/mdx";
 
 type BlogPost = MDXFrontmatter & { _href: string };
 
-const CATEGORIES = ["ALL", "PARKS", "EPCOT", "STRATEGY", "DINING", "RESORTS"] as const;
+const CATEGORIES = ["ALL", "PARKS", "EPCOT", "STRATEGY", "DINING", "RESORTS", "PLANNING", "GEAR", "TIPS & TRICKS"] as const;
 
 export default function BlogClientFilter({ posts }: { posts: BlogPost[] }) {
   const [active, setActive] = useState<string>("ALL");

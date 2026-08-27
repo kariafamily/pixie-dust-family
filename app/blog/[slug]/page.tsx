@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getMDXBySlug, getAllSlugs } from "@/lib/mdx";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import AuthorBox from "@/components/AuthorBox";
+import RelatedPosts from "@/components/RelatedPosts";
 import EmailCapture from "@/components/EmailCapture";
 import AffiliateLink from "@/components/AffiliateLink";
 import AffiliateProductBox from "@/components/AffiliateProductBox";
@@ -82,6 +83,12 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mb-12">
           <AuthorBox />
         </div>
+
+        {fm.relatedPosts && fm.relatedPosts.length > 0 && (
+          <div className="mb-12">
+            <RelatedPosts slugs={fm.relatedPosts} currentSlug={slug} />
+          </div>
+        )}
 
         {/* EmailCapture paused — PDF lead magnet not yet built. Re-enable after PDF is created and wired into ConvertKit welcome automation. */}
         {/* <EmailCapture /> */}
