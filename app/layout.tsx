@@ -52,8 +52,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
     ],
-    shortcut: '/favicon.svg',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.svg',
   },
   openGraph: { type: "website", siteName: "Pixie Dust Family", locale: "en_US" },
   twitter: { card: "summary_large_image" },
