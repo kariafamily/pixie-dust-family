@@ -335,3 +335,246 @@ products['melissa-doug-mickey-magnets'] = {
   amazonAsin: 'B00P2SL7JI',
   category: 'entertainment',
 };
+
+products['loungefly-minnie-leopard-shoulder-bag'] = {
+  id: 'loungefly-minnie-leopard-shoulder-bag',
+  name: 'Minnie Mouse Leopard Print Shoulder Bag',
+  shortDescription: 'A Minnie Mouse shoulder bag in a leopard print.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0CMW43DDZ',
+  category: 'gear',
+};
+
+products['disney-mickey-friends-boys-swim-set'] = {
+  id: 'disney-mickey-friends-boys-swim-set',
+  name: "Mickey & Friends Boys' Swim Set",
+  shortDescription: "A Mickey Mouse & Friends swim set for boys.",
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0G4K3Y9ZN',
+  category: 'apparel',
+};
+
+products['disney-mickey-toddler-baseball-cap'] = {
+  id: 'disney-mickey-toddler-baseball-cap',
+  name: 'Mickey Mouse Toddler Baseball Cap',
+  shortDescription: 'A Mickey Mouse baseball cap sized for toddlers.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B08867G3FL',
+  category: 'apparel',
+};
+
+products['mickey-boys-no-show-socks'] = {
+  id: 'mickey-boys-no-show-socks',
+  name: "Mickey Mouse Boys' No-Show Socks",
+  shortDescription: 'No-show socks in a Mickey Mouse print for boys.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0B6249XRG',
+  category: 'apparel',
+};
+
+products['disney-dash-multimaker-waffle'] = {
+  id: 'disney-dash-multimaker-waffle',
+  name: 'Mickey Mouse Mini Waffle Maker',
+  shortDescription: 'A Mickey Mouse-shaped mini waffle maker for at-home Disney breakfasts.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0FB2TVN8C',
+  category: 'gear',
+};
+
+products['loungefly-pirate-minnie-backpack'] = {
+  id: 'loungefly-pirate-minnie-backpack',
+  name: 'Pirate Minnie Mouse Mini Backpack',
+  shortDescription: 'A pirate-themed Minnie Mouse mini backpack.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0CCSY93DZ',
+  category: 'gear',
+};
+
+products['popsockets-mickey-waffle-magsafe'] = {
+  id: 'popsockets-mickey-waffle-magsafe',
+  name: 'Mickey Waffle MagSafe PopGrip',
+  shortDescription: 'A Mickey waffle-print PopSockets MagSafe phone grip.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0D9LYHZY3',
+  category: 'gear',
+};
+
+products['disney-mickey-toddler-baseball-cap-redblack'] = {
+  id: 'disney-mickey-toddler-baseball-cap-redblack',
+  name: 'Mickey Mouse Toddler Baseball Cap (Red/Black)',
+  shortDescription: 'A red-and-black Mickey Mouse toddler baseball cap.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07SN33LKL',
+  category: 'apparel',
+};
+
+products['igloo-disney-mickey-backpack-cooler'] = {
+  id: 'igloo-disney-mickey-backpack-cooler',
+  name: 'Mickey Mouse Backpack Cooler',
+  shortDescription: 'An insulated backpack cooler in a Mickey Mouse print.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0916PKKNC',
+  category: 'food',
+};
+
+products['petunia-pickle-bottom-cool-pixel-mickey-minnie'] = {
+  id: 'petunia-pickle-bottom-cool-pixel-mickey-minnie',
+  name: 'Mickey & Minnie "Cool Pixel" Diaper Bag',
+  shortDescription: 'A diaper bag in a Mickey & Minnie "Cool Pixel" print.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B076BZ8YCN',
+  category: 'gear',
+};
+
+products['petunia-pickle-bottom-boxy-backpack-mickey-minnie'] = {
+  id: 'petunia-pickle-bottom-boxy-backpack-mickey-minnie',
+  name: 'Mickey & Minnie Boxy Backpack Diaper Bag',
+  shortDescription: 'A boxy backpack diaper bag in a Mickey & Minnie print.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B06ZYWZ8R3',
+  category: 'gear',
+};
+
+products['star-wars-yoda-best-grandpa-tshirt'] = {
+  id: 'star-wars-yoda-best-grandpa-tshirt',
+  name: 'Star Wars Yoda "Best Grandpa" Tee',
+  shortDescription: 'A Star Wars Yoda "Best Grandpa" graphic tee.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07Q9X2YPQ',
+  category: 'apparel',
+};
+
+products['mickey-minnie-kitsch-hair-claw'] = {
+  id: 'mickey-minnie-kitsch-hair-claw',
+  name: 'Mickey & Minnie Hair Claw Clip',
+  shortDescription: 'A Mickey & Minnie print hair claw clip.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0DBK67CHX',
+  category: 'gear',
+};
+
+products['disney-classics-baby-bodysuits-5pk'] = {
+  id: 'disney-classics-baby-bodysuits-5pk',
+  name: 'Disney Classics Baby Bodysuits (5-Pack)',
+  shortDescription: 'A 5-pack of baby bodysuits in classic Disney character prints.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B09H7PGQGY',
+  category: 'apparel',
+};
+
+products['disney-mickey-lean-zip-hoodie'] = {
+  id: 'disney-mickey-lean-zip-hoodie',
+  name: 'Mickey Mouse Lean Zip Hoodie',
+  shortDescription: 'A zip-up Mickey Mouse hoodie.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B082DZ45NN',
+  category: 'apparel',
+};
+
+products['bumkins-disney-toiletry-set'] = {
+  id: 'bumkins-disney-toiletry-set',
+  name: 'Disney Travel Toiletry Set',
+  shortDescription: 'A Disney-print travel toiletry organizer set.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07ZLF8SDQ',
+  category: 'gear',
+};
+
+products['magic-band-protectors-black-8pack'] = {
+  id: 'magic-band-protectors-black-8pack',
+  name: 'MagicBand Protector Covers (8-Pack, Black)',
+  shortDescription: 'Silicone protector covers for Disney MagicBands, 8-pack in black.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0CQPPHBZ7',
+  category: 'gear',
+};
+
+products['mickey-minnie-kitsch-hair-clips-4pc'] = {
+  id: 'mickey-minnie-kitsch-hair-clips-4pc',
+  name: 'Mickey & Minnie Hair Clips (4-Piece)',
+  shortDescription: 'A 4-piece set of Mickey & Minnie print hair clips.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0DBJT7QW7',
+  category: 'gear',
+};
+
+products['disney-mickey-infant-fleece-hoodie'] = {
+  id: 'disney-mickey-infant-fleece-hoodie',
+  name: 'Mickey Mouse Infant Fleece Hoodie',
+  shortDescription: 'A fleece hoodie in a Mickey Mouse print, sized for infants.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0B2KKVCSF',
+  category: 'apparel',
+};
+
+products['freshly-picked-mickey-leopard-fanny-pack'] = {
+  id: 'freshly-picked-mickey-leopard-fanny-pack',
+  name: 'Mickey Mouse Leopard Print Fanny Pack',
+  shortDescription: 'A Mickey Mouse fanny pack in a leopard print.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B08V9K4HZP',
+  category: 'gear',
+};
+
+products['disney-toy-story-buzz-infinity-tshirt-toddler'] = {
+  id: 'disney-toy-story-buzz-infinity-tshirt-toddler',
+  name: 'Toy Story Buzz "To Infinity" Toddler Tee',
+  shortDescription: 'A Buzz Lightyear "To Infinity and Beyond" graphic tee for toddlers.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07FXJ6V2C',
+  category: 'apparel',
+};
+
+products['amazon-essentials-toy-story-pajamas-3pk'] = {
+  id: 'amazon-essentials-toy-story-pajamas-3pk',
+  name: 'Toy Story Pajamas (3-Pack)',
+  shortDescription: 'A 3-pack of Toy Story print pajama sets.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B09FLY2Z21',
+  category: 'apparel',
+};
+
+products['disney-boys-mickey-6piece-pajamas'] = {
+  id: 'disney-boys-mickey-6piece-pajamas',
+  name: "Mickey Mouse Boys' 6-Piece Pajama Set",
+  shortDescription: 'A 6-piece Mickey Mouse pajama set for boys.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B095821XV7',
+  category: 'apparel',
+};
+
+products['disney-mickey-boys-waffle-knit-set'] = {
+  id: 'disney-mickey-boys-waffle-knit-set',
+  name: "Mickey Mouse Boys' Waffle Knit Set",
+  shortDescription: 'A waffle-knit Mickey Mouse outfit set for boys.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0DW5CJCY2',
+  category: 'apparel',
+};
+
+products['disney-donald-duck-tantrum-mens-tshirt'] = {
+  id: 'disney-donald-duck-tantrum-mens-tshirt',
+  name: 'Donald Duck "Tantrum" Men\'s Tee',
+  shortDescription: 'A Donald Duck "tantrum" graphic tee for men.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B0CXLBKM42',
+  category: 'apparel',
+};
+
+products['disney-mickey-distressed-mens-tshirt'] = {
+  id: 'disney-mickey-distressed-mens-tshirt',
+  name: "Distressed Mickey Mouse Men's Tee",
+  shortDescription: 'A distressed-print Mickey Mouse tee for men.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B01MZI79J6',
+  category: 'apparel',
+};
+
+products['disney-lion-king-baby-bodysuits-5pk'] = {
+  id: 'disney-lion-king-baby-bodysuits-5pk',
+  name: 'Lion King Baby Bodysuits (5-Pack)',
+  shortDescription: 'A 5-pack of baby bodysuits in Lion King character prints.',
+  affiliateProgram: 'amazon',
+  amazonAsin: 'B07GRJCRQ8',
+  category: 'apparel',
+};
